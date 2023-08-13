@@ -9,4 +9,10 @@ class DataProvider extends ChangeNotifier {
 
   List<Data> dataList = [];
 
+  Future<void> bringData() async {
+    final broughtData = await getData.getData();
+    print('Hola');
+    dataList.add(broughtData);
+    notifyListeners();
+  }
 }
