@@ -28,7 +28,9 @@ class _HomeView extends StatelessWidget {
         Expanded(
           child: Center(
               child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/apiInformation');
+                  },
                   style: buttonStyle(context),
                   child: const Text('Ver Información', textAlign: TextAlign.center))),
         ),

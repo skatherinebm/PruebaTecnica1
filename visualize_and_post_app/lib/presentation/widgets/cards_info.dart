@@ -18,36 +18,38 @@ class CardsDataInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              SizedBox(
-                width: 300,
-                child: Column(
-                  children: [
-                  Text(dataInfo.title),
-                  Column(children:[
-                 Text(
-                   "userId: ${dataInfo.userId}" ,
-                 ),
-                 Text(
-                   'id: ${dataInfo.id}',
-                 ),
-                 Text(
-                   'completed: ${dataInfo.completed}',
-                 ),
-                  ]
-   
-
-
-              )]),
-                // title: Text(dataInfo.title),
-                // subtitle:  Text(
-                //   'userId: $dataInfo.userId.toString()',
-                // ),
-                // trailing: const Icon(Icons.arrow_forward_ios),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: SizedBox(
+                    child: Column(
+                      children: [
+                      Text(dataInfo.title),
+                      Column(children:[
+                     Text(
+                       "userId: ${dataInfo.userId}" ,
+                     ),
+                     Text(
+                       'id: ${dataInfo.id}',
+                     ),
+                     Text(
+                       'completed: ${dataInfo.completed}',
+                     ),
+                      ]
+                   
+                              
+                              
+                  )]),
+                  ),
+                ),
               ),
-              TextButton(
-                onPressed: () {},
-                style: buttonStyle(context),
-                child: const Text('lorum'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextButton(
+                  onPressed: () {},
+                  style: buttonStyle(context),
+                  child: const Text('lorum'),
+                ),
               ),
             ],
           ),

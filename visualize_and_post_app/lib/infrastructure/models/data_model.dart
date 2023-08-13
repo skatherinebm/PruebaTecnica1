@@ -24,10 +24,10 @@ class DataModel {
     });
 
     factory DataModel.fromJsonMap(Map<String, dynamic> json) => DataModel(
-        userId: json["userId"],
-        id: json["id"],
-        title: json["title"],
-        completed: json["completed"],
+        userId: json['userId'],
+        id: json['id'],
+        title: json['title'],
+        completed: json['completed'],
     );
 
     Map<String, dynamic> toJson() => {

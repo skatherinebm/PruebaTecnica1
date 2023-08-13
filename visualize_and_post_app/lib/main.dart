@@ -16,13 +16,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-        providers: [ChangeNotifierProvider(create: (_) => DataProvider())],
+        providers: [ChangeNotifierProvider(create: (_) => DataProvider()..bringData())],
         child: MaterialApp(
           title: 'Json Placeholder Api',
           debugShowCheckedModeBanner: false,
           theme: AppTheme(selectedColor: 0).theme(),
           home: const ApiInformationScreen(),
-          //  home: const HomeScreen(),
+          initialRoute: '/home',
+          routes: {
+            '/home': (context) => const HomeScreen(),
+            '/apiInformation': (context) => const ApiInformationScreen(),
+          },
         ));
   }
 }

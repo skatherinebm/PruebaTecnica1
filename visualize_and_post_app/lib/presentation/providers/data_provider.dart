@@ -7,12 +7,13 @@ class DataProvider extends ChangeNotifier {
   final ScrollController dataScrollControler = ScrollController();
   final GetData getData = GetData();
 
+  bool initialLoading = true;
+
   List<Data> dataList = [];
 
   Future<void> bringData() async {
-    final broughtData = await getData.getData();
-    print('Hola');
-    dataList.add(broughtData);
+    dataList = await getData.getData();
+    initialLoading = false;
     notifyListeners();
   }
 }

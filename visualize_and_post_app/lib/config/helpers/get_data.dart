@@ -7,10 +7,15 @@ import '../../domain/entities/data_appi.dart';
 
 class GetData {
   final _dio = Dio();
-  Future<Data> getData() async {
+
+  Future<List<Data>> getData() async {
     final response = await _dio.get('https://jsonplaceholder.typicode.com/todos');
-    final dataModel = DataModel.fromJsonMap(response.data[0]);
-    return dataModel.toDataEntity();
-  }
+    List<dynamic> data = response.data;
+    List<Map<String, dynamic>> listaDeResponseData = data.map((item) => item as Map<String, dynamic>).toList();
+    final List<Data> newData = listaDeResponseData.map(
+      ( singularData ) => DataModel.fromJsonMap(singularData).toDataEntity()
+    ).toList();
+    return newData;
+  } 
 
 }

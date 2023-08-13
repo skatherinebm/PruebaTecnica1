@@ -11,14 +11,16 @@ class ApiInformationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    final dataProvider = context.watch()<DataProvider>();
+    final dataProvider = context.watch<DataProvider>();
     // dataProvider.bringData();
     return Scaffold(
         appBar: AppBar(
           leading: Padding(
             padding: const EdgeInsets.all(4.0),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              },
               icon: const Icon(Icons.arrow_back_ios),
               style: ButtonStyle(
                   splashFactory: InkSplash.splashFactory,
@@ -29,7 +31,9 @@ class ApiInformationScreen extends StatelessWidget {
           backgroundColor: colors.secondary,
         ),
         backgroundColor: colors.secondary,
-        body: _ApiInfoView(dataProvider: dataProvider,));
+        body: _ApiInfoView(
+          dataProvider: dataProvider,
+        ));
   }
 }
 
@@ -40,35 +44,14 @@ class _ApiInfoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Column(children: [
-      Expanded(child: ListView.builder(
-        itemCount: dataProvider.dataList.length,
-        itemBuilder: (BuildContext context, int index) {
-          final dataInfo = dataProvider.dataList[index];
-          return (CardsDataInfo(dataInfo: dataInfo));
-        })
-        )
-        
-
+      Expanded(
+          child: ListView.builder(
+              itemCount: dataProvider.dataList.length,
+              itemBuilder: (BuildContext context, int index) {
+                final dataInfo = dataProvider.dataList[index];
+                return Expanded(child: (CardsDataInfo(dataInfo: dataInfo)));
+              }))
     ]);
   }
 }
-
-
-
-      // CardsDataInfo(
-      //   dataInfo: Data(
-      //       userId: 1, id: 1, title: "delectus aut autem", completed: false),
-      // ),
-      // CardsDataInfo(
-      //   dataInfo: Data(
-      //       userId: 1, id: 1, title: "delectus aut autem", completed: false),
-      // ),
-      // CardsDataInfo(
-      //   dataInfo: Data(
-      //       userId: 1, id: 1, title: "delectus aut autem", completed: false),
-      // ),
-      // CardsDataInfo(),
-      // CardsDataInfo(),
-      // CardsDataInfo(),
