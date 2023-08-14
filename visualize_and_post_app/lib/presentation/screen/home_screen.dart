@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//Pantalla que renderiza la ventana de inicio o home.
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -20,6 +21,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+//Widget que contiene el body del Scaffold de Home
 class _HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,33 +34,39 @@ class _HomeView extends StatelessWidget {
                     Navigator.pushNamed(context, '/apiInformation');
                   },
                   style: buttonStyle(context),
-                  child: const Text('Ver Información', textAlign: TextAlign.center))),
+                  child: const Text('Ver Información',
+                      textAlign: TextAlign.center))),
         ),
         Expanded(
-          child: Center(
-              child: TextButton(
-                  onPressed: () {},
-                  style: buttonStyle(context),
-                  child: const Text('Realizar Post', textAlign: TextAlign.center), ) )),
+            child: Center(
+                child: TextButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/post');
+          },
+          style: buttonStyle(context),
+          child: const Text('Realizar Post', textAlign: TextAlign.center),
+        ))),
       ]),
     );
   }
 
+//Función que retorna el estilo de los botones principales de Home
   ButtonStyle buttonStyle(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     return ButtonStyle(
-        textStyle: MaterialStateProperty.all<TextStyle>(buttonsTextStyle()),
-        backgroundColor: MaterialStateProperty.all<Color>(colors.primary),
-        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-        fixedSize: MaterialStateProperty.all<Size>(const Size.fromRadius(150)),
-        elevation: MaterialStateProperty.all<double>(10),
-        shape: MaterialStateProperty.all<OutlinedBorder>(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(150))),
-        splashFactory: InkSplash.splashFactory,
-        overlayColor: MaterialStateProperty.all<Color>(colors.tertiary),
-        );
+      textStyle: MaterialStateProperty.all<TextStyle>(buttonsTextStyle()),
+      backgroundColor: MaterialStateProperty.all<Color>(colors.primary),
+      foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+      fixedSize: MaterialStateProperty.all<Size>(const Size.fromRadius(150)),
+      elevation: MaterialStateProperty.all<double>(10),
+      shape: MaterialStateProperty.all<OutlinedBorder>(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(150))),
+      splashFactory: InkSplash.splashFactory,
+      overlayColor: MaterialStateProperty.all<Color>(colors.tertiary),
+    );
   }
 
+//funcion que retorna el estilo del texto de los botones principales de Home
   TextStyle buttonsTextStyle() {
     return const TextStyle(
       fontSize: 40,

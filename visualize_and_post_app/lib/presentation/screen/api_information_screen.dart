@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:visualize_and_post_app/domain/entities/data_appi.dart';
 import 'package:visualize_and_post_app/presentation/providers/data_provider.dart';
 
 import '../widgets/cards_info.dart';
 
+//Pantalla que renderiza la información de la Api
 class ApiInformationScreen extends StatelessWidget {
   const ApiInformationScreen({super.key});
 
@@ -12,7 +12,6 @@ class ApiInformationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     final dataProvider = context.watch<DataProvider>();
-    // dataProvider.bringData();
     return Scaffold(
         appBar: AppBar(
           leading: Padding(
@@ -37,10 +36,11 @@ class ApiInformationScreen extends StatelessWidget {
   }
 }
 
+//Widget que contiene la ListView que renderiza las Cards con la información
 class _ApiInfoView extends StatelessWidget {
   final DataProvider dataProvider;
 
-  const _ApiInfoView({super.key, required this.dataProvider});
+  const _ApiInfoView({required this.dataProvider});
 
   @override
   Widget build(BuildContext context) {

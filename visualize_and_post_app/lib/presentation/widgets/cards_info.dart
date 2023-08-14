@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:visualize_and_post_app/domain/entities/data_appi.dart';
+import 'package:visualize_and_post_app/domain/entities/data_api.dart';
 
+//Widget que retorna otro widget con la card que contienen la info traída de la data
 class CardsDataInfo extends StatelessWidget {
   const CardsDataInfo({super.key, required this.dataInfo});
 
@@ -22,24 +23,20 @@ class CardsDataInfo extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: SizedBox(
-                    child: Column(
-                      children: [
+                    child: Column(children: [
                       Text(dataInfo.title),
-                      Column(children:[
-                     Text(
-                       "userId: ${dataInfo.userId}" ,
-                     ),
-                     Text(
-                       'id: ${dataInfo.id}',
-                     ),
-                     Text(
-                       'completed: ${dataInfo.completed}',
-                     ),
-                      ]
-                   
-                              
-                              
-                  )]),
+                      Column(children: [
+                        Text(
+                          "userId: ${dataInfo.userId}",
+                        ),
+                        Text(
+                          'id: ${dataInfo.id}',
+                        ),
+                        Text(
+                          'completed: ${dataInfo.completed}',
+                        ),
+                      ])
+                    ]),
                   ),
                 ),
               ),
@@ -58,6 +55,7 @@ class CardsDataInfo extends StatelessWidget {
     );
   }
 
+//Función que retorna el estilo de los botones 'lorum' de cada card
   ButtonStyle buttonStyle(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     return ButtonStyle(
@@ -78,8 +76,6 @@ class CardsDataInfo extends StatelessWidget {
       fontSize: 15,
       inherit: true,
       fontWeight: FontWeight.w100,
-      // decoration: TextDecoration.underline,
-      // decorationStyle: TextDecorationStyle.dashed,
       fontFamily: 'Lato',
     );
   }
