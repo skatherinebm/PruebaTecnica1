@@ -60,32 +60,32 @@ class _HomeView extends StatelessWidget {
   }
 
 //Función que retorna el estilo de los botones principales de Home
-  ButtonStyle buttonStyle(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
-    return ButtonStyle(
-      textStyle: MaterialStateProperty.all<TextStyle>(buttonsTextStyle()),
-      backgroundColor: MaterialStateProperty.all<Color>(colors.primary),
-      foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-      fixedSize: MaterialStateProperty.all<Size>(const Size.fromRadius(150)),
-      elevation: MaterialStateProperty.all<double>(10),
-      shape: MaterialStateProperty.all<OutlinedBorder>(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(150))),
-      splashFactory: InkSplash.splashFactory,
-      overlayColor: MaterialStateProperty.all<Color>(colors.tertiary),
-    );
-  }
+//   ButtonStyle buttonStyle(BuildContext context) {
+//     final colors = Theme.of(context).colorScheme;
+//     return ButtonStyle(
+//       textStyle: MaterialStateProperty.all<TextStyle>(buttonsTextStyle()),
+//       backgroundColor: MaterialStateProperty.all<Color>(colors.primary),
+//       foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+//       fixedSize: MaterialStateProperty.all<Size>(const Size.fromRadius(150)),
+//       elevation: MaterialStateProperty.all<double>(10),
+//       shape: MaterialStateProperty.all<OutlinedBorder>(
+//           RoundedRectangleBorder(borderRadius: BorderRadius.circular(150))),
+//       splashFactory: InkSplash.splashFactory,
+//       overlayColor: MaterialStateProperty.all<Color>(colors.tertiary),
+//     );
+//   }
 
-//funcion que retorna el estilo del texto de los botones principales de Home
-  TextStyle buttonsTextStyle() {
-    return const TextStyle(
-      fontSize: 40,
-      inherit: true,
-      fontWeight: FontWeight.w400,
-      // decoration: TextDecoration.underline,
-      // decorationStyle: TextDecorationStyle.dashed,
-      fontFamily: 'Lato',
-    );
-  }
+// //funcion que retorna el estilo del texto de los botones principales de Home
+//   TextStyle buttonsTextStyle() {
+//     return const TextStyle(
+//       fontSize: 40,
+//       inherit: true,
+//       fontWeight: FontWeight.w400,
+//       // decoration: TextDecoration.underline,
+//       // decorationStyle: TextDecorationStyle.dashed,
+//       fontFamily: 'Lato',
+//     );
+//   }
 }
 
 class _CustomListTile extends StatelessWidget {
@@ -105,6 +105,10 @@ class _CustomListTile extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(context, homeItem.link);
       },
+      titleTextStyle: TextStyle(
+        color: colors.primary,
+      ),
     );
   }
+
 }
