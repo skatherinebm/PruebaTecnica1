@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           title: 'Json Placeholder Api',
           debugShowCheckedModeBanner: false,
           theme: AppTheme(selectedColor: 0).theme(),
-          home: const ApiInformationScreen(),
+          home: const HomeScreen(),
           initialRoute: '/home',
           routes: {
             '/home': (context) => const HomeScreen(),

@@ -10,6 +10,7 @@ List<Color> _colorThemes = [
   Colors.black54,
   Colors.cyan,
   Colors.teal,
+  Colors.purple,
 ];
 
 //Incluye la configuración del tema de la App
@@ -26,7 +27,7 @@ class AppTheme {
         colorScheme: ColorScheme.fromSeed(
             seedColor: _colorThemes[selectedColor],
             secondary: _colorThemes[selectedColor],
-            primary: Colors.blue.shade300),
+            primary: Colors.purple),
         brightness: Brightness.light,
         cardTheme: const CardTheme(
           clipBehavior: Clip.antiAlias,
